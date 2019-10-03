@@ -7,7 +7,7 @@ $(document).ready(function() {
     var intervalId;
     var userGuess = "";
     var runTime = false;
-    var pick;
+    var ask;
     var index;
     var newArray = [];
     //var holder = [];
@@ -69,7 +69,7 @@ $(document).ready(function() {
         if (timer === 0) {
             wrongCount++;
             stopTime();
-            $("#ans").text("Wrong! The answer is: " + pick.choices[pick.answer]);
+            $("#ans").text("Wrong! The answer is: " + ask.choices[ask.answer]);
             nextQuestion();
         }
     }
@@ -82,19 +82,19 @@ $(document).ready(function() {
     function askGameQuestions() {
         $("#cancel").show();
         index = Math.floor(Math.random() * gameQuestions.length)
-        pick = gameQuestions[index];
-        $("#question-asked").text(pick.question);
-        for (var i = 0; i < pick.choices.length; i++) {
+        ask = gameQuestions[index];
+        $("#question-asked").text(ask.question);
+        for (var i = 0; i < ask.choices.length; i++) {
             var userAnswers = $("<div>");
             userAnswers.addClass("answer");
-            userAnswers.html(pick.choices[i]);
+            userAnswers.html(ask.choices[i]);
             userAnswers.attr("guess", i);
             $("#ans").append(userAnswers);
         }
         $(".answer").click(function() {
             userAnswers = parseInt($(this).attr("guess"));
 
-            if (userAnswers === pick.answer) {
+            if (userAnswers === ask.answer) {
                 stopTime();
                 correctCount++;
                 userAnswers = "";
@@ -104,14 +104,14 @@ $(document).ready(function() {
                 stopTime();
                 wrongCount++;
                 userAnswers = "";
-                $("#ans").text("Wrong! The answer is: " + pick.choices[pick.answer]);
+                $("#ans").text("Wrong! The answer is: " + ask.choices[ask.answer]);
                 nextQuestion();
             }
         })
     }
 
     function nextQuestion() {
-        newArray.push(pick);
+        newArray.push(ask);
         gameQuestions.splice(index, 1);
         var newQues = setTimeout(function() {
             $("#ans").empty();
