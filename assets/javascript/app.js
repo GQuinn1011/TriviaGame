@@ -10,7 +10,6 @@ $(document).ready(function() {
     var ask;
     var index;
     var newArray = [];
-    //var holder = [];
     var gameQuestions = [{
             question: "What year did the iPhone first release to the public?",
             choices: ["2010", "2004", "2007", "1999"],
