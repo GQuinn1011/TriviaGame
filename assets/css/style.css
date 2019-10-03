@@ -1,0 +1,41 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Share Tech', sans-serif;
+    font-weight: bold;
+}
+
+#box1 {
+    background-color: black;
+}
+
+.jumbotron,
+.lead,
+#timer,
+#question-asked {
+    background-color: black;
+    font-size: 20pt;
+    text-align: center;
+}
+
+.jumbotron {
+    height: 900px;
+}
+
+.answer {
+    border: 1px solid black;
+    margin: 10px auto;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    background-color: darkolivegreen;
+    color: white;
+}
+
+#ans {
+    margin: 10px auto;
+    width: 40%;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+}
